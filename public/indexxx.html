@@ -1,0 +1,29 @@
+Dosyaları yükle
+Cloud Storage'a bir dosya yüklemek için, önce dosya adı da dahil olmak üzere dosyanın tam yoluna bir başvuru oluşturursunuz.
+
+// Create a root reference // Kök başvurusu oluşturma
+var storageRef = firebase.storage().ref();
+
+// Create a reference to 'mountains.jpg' // Referans oluşturun 'mountains.jpg'
+var mountainsRef = storageRef.child('mountains.jpg');
+
+// Create a reference to 'images/mountains.jpg' // Referans oluşturun 'images/mountains.jpg'
+var mountainImagesRef = storageRef.child('images/mountains.jpg');
+
+// While the file names are the same, the references point to different files // Dosya adları aynı olsa da, başvurular farklı dosyaları gösterir
+mountainsRef.name === mountainImagesRef.name            // true
+mountainsRef.fullPath === mountainImagesRef.fullPath    // false
+
+
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+Upload from a Blob or File// Bir Blob veya Dosyadan Yükleme
+
+Once you've created an appropriate reference, you then call the put() method. put() takes files via the JavaScript File and Blob APIs and uploads them to Cloud Storage
+Uygun bir referans oluşturduktan sonra put () yöntemini çağırırsınız. put (), dosyaları JavaScript Dosyası ve Blob API'leri aracılığıyla alır ve Cloud Storage'a yükler
+
+var file = ... // use the Blob or File API // Blob veya Dosya API'sını kullanma
+ref.put(file).then(function(snapshot) {
+  console.log('Uploaded a blob or file! // Bir damla veya dosya yükledi!');
+});
