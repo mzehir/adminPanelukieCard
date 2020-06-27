@@ -13,14 +13,13 @@ import Blog from './clientFiles/blog';
 
 function App2() {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid bg-dark">
       <div className="row">
         <FixedInformation></FixedInformation>
         <Navigation></Navigation>
 
         <Router>
           <Switch>
-
             <Route path="/adminPaneli/homePage">
               <Home></Home>
             </Route>

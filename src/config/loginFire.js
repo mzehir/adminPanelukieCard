@@ -5,10 +5,8 @@ class LoginFire {
     async loginBringToFirebase(email, password) {
         try {
             let user = await Fire.auth.signInWithEmailAndPassword(email, password)
-            debugger
             if (user) {
                 let userEmail = user.user.email
-                console.log(userEmail)
                 return userEmail
             }
         } catch (error) {
@@ -36,14 +34,13 @@ class LoginFire {
     }
 
     async automaticLogOut() {
-        //bu kısm düzenlenecek ve bu fonksiyon homepage'nin useeffecttinden gerekirse kaldırılacak.
-         await Fire.auth.setPersistence(Fire.authh.Auth.Persistence.SESSION)
-            // .then(function () {
-            //     return window.location.href = '/'
-            // })
-            // .catch(function (error) {
-            //     alert(error.message + " " + error.code)
-            // })
+        let deneme = await Fire.auth.setPersistence(Fire.authh.Auth.Persistence.SESSION)
+        // .then(function () {
+        //     return window.location.href = '/'
+        // })
+        // .catch(function (error) {
+        //     alert(error.message + " " + error.code)
+        // })
     }
 
 }

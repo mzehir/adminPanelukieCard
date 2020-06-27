@@ -6,11 +6,6 @@ const Login = () => {
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
 
-    // useEffect(() => {
-    //     LoginFire.loginingControl().then((() => {
-    //     }))
-    // }, [])
-
     return (
         <div id="loginFatherDiv" className="row justify-content-center mt-5  animated flip">
             <div className="card border-primary col-sm-12 col-md-4  shadow-lg p-3 mb-5 bg-white rounded">
@@ -49,7 +44,7 @@ const Login = () => {
             await LoginFire.loginBringToFirebase(email, password).then(((user) => {
                 if (user) {
                     document.getElementById('loginFatherDiv').className = "row justify-content-center mt-5  animated rotateOut"
-                    window.location.href = '/adminPaneli'
+                    window.location.href = '/adminPaneli/homePage'
                 }
             }))
         }
